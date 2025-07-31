@@ -1,5 +1,5 @@
 # main.py
-# BUD AI Backend - OpenAI 1.0+ Compatible
+# BUD AI Backend - OpenAI 1.1 (GPT-4o Compatible)
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,13 +8,13 @@ import os
 
 app = FastAPI()
 
-# Set up OpenAI client
+# Set up OpenAI client with your API key
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# Allow frontend access
+# Allow frontend access (adjust for production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust for production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,22 +28,30 @@ async def root():
 async def ask(request: Request):
     try:
         body = await request.json()
-        user_question = body.get("question")
+        user_question = body.get("question", "").strip()
 
         if not user_question:
             return {"answer": "Please ask a question."}
 
         response = client.chat.completions.create(
-            model="gpt-4o",  # ✅ FIXED: Correct model name
+            model="gpt-4o",  # Make sure your OpenAI account has access to this model
             messages=[
-                {"role": "system", "content": "You are BUD, a friendly expert in dispensary SEO and cannabis marketing. Keep answers short and helpful."},
+                {
+                    "role": "system",
+                    "content": "You are BUD, a friendly expert in dispensary SEO and cannabis marketing. You respond clearly, even to greetings, and help users with short, useful tips."
+                },
                 {"role": "user", "content": user_question},
             ],
             temperature=0.7,
+            max_tokens=300
         )
 
         reply = response.choices[0].message.content.strip()
+
+        if not reply:
+            return {"answer": "Sorry, I didn’t get that. Can you try asking another way?"}
+
         return {"answer": reply}
 
     except Exception as e:
-        return {"error": str(e)}
+        return {"answer": f"Error: {str(e)}"}
