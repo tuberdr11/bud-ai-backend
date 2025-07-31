@@ -1,49 +1,49 @@
+# main.py
+# BUD AI Backend - OpenAI 1.0+ Compatible
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-import openai
+from openai import OpenAI
 import os
 
 app = FastAPI()
 
+# Set up OpenAI client
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+# Allow frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Adjust for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+@app.get("/")
+async def root():
+    return {"message": "BUD AI backend is live."}
 
 @app.post("/ask")
-async def ask_question(req: Request):
+async def ask(request: Request):
     try:
-        data = await req.json()
-        question = data.get("message", "")
-        if not question:
-            return JSONResponse(content={"reply": "No question received."}, status_code=400)
+        body = await request.json()
+        user_question = body.get("question")
 
-        messages = [
-            {
-                "role": "system",
-                "content": "You are BUD, the helpful AI from 420Optimized.com. Use only verified info from the site to answer questions clearly and helpfully.",
-            },
-            {
-                "role": "user",
-                "content": question,
-            },
-        ]
+        if not user_question:
+            return {"error": "No question provided."}
 
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=messages,
+        response = client.chat.completions.create(
+            model="gpt-4",  # You can switch to "gpt-3.5-turbo" if needed
+            messages=[
+                {"role": "system", "content": "You are BUD, a friendly expert in dispensary SEO and cannabis marketing. Keep answers short and helpful."},
+                {"role": "user", "content": user_question},
+            ],
             temperature=0.7,
         )
 
-        reply = response.choices[0].message["content"].strip()
-
-        return JSONResponse(content={"reply": reply})
+        reply = response.choices[0].message.content.strip()
+        return {"answer": reply}
 
     except Exception as e:
-        return JSONResponse(content={"reply": f"Error: {str(e)}"}, status_code=500)
+        return {"error": str(e)}
