@@ -28,8 +28,7 @@ async def root():
 async def ask(request: Request):
     try:
         body = await request.json()
-        user_question = body.get("question")
-
+        user_question = body.get("message")
         if not user_question:
             return {"reply": "Please ask a question."}
 
