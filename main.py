@@ -14,7 +14,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # Allow frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust for production
+    allow_origins=["*"],  # Update this to your domain in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -31,19 +31,25 @@ async def ask(request: Request):
         user_question = body.get("question")
 
         if not user_question:
-            return {"error": "No question provided."}
+            return {"reply": "Please ask a question."}
 
         response = client.chat.completions.create(
-            model="gpt-4",  # You can switch to "gpt-3.5-turbo" if needed
+            model="gpt-4",  # Or use "gpt-3.5-turbo" if desired
             messages=[
-                {"role": "system", "content": "You are BUD, a friendly expert in dispensary SEO and cannabis marketing. Keep answers short and helpful."},
+                {
+                    "role": "system",
+                    "content": (
+                        "You are BUD, a friendly expert in dispensary SEO and cannabis marketing. "
+                        "Keep answers short, clear, and helpful. Speak in a casual, upbeat tone."
+                    ),
+                },
                 {"role": "user", "content": user_question},
             ],
             temperature=0.7,
         )
 
         reply = response.choices[0].message.content.strip()
-        return {"answer": reply}
+        return {"reply": reply}
 
     except Exception as e:
-        return {"error": str(e)}
+        return {"reply": f"Sorry, there was an error: {str(e)}"}
