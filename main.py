@@ -1,38 +1,55 @@
+# main.py – FastAPI backend using OpenAI SDK >= 1.0.0
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-import openai, os
-from embedder import find_relevant_chunks
+from openai import OpenAI
+import os
+import logging
 
+# Logging setup
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+# Check if API key exists
+openai_key = os.getenv("OPENAI_API_KEY")
+if openai_key:
+    logger.debug("OpenAI Key Present? True")
+else:
+    logger.error("OpenAI Key Missing!")
+    raise ValueError("Missing OPENAI_API_KEY environment variable")
+
+# OpenAI client setup
+client = OpenAI(api_key=openai_key)
+
+# FastAPI app
 app = FastAPI()
 
+# CORS settings
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # In production, restrict this
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
-print("DEBUG: OpenAI Key Present?", bool(openai.api_key))  # <-- Debug line
-
+# Ask endpoint
 @app.post("/ask")
-async def ask_question(req: Request):
-    data = await req.json()
-    question = data.get("message", "")
-    context = find_relevant_chunks(question)
-    messages = [
-        {"role": "system", "content": "You are BUD, the helpful AI from 420Optimized.com. Use only verified info from the site to answer questions clearly and helpfully."},
-        {"role": "user", "content": f"{question}\n\nContext:\n{context}"}
-    ]
+async def ask_question(request: Request):
+    data = await request.json()
+    user_input = data.get("message", "")
+
+    if not user_input:
+        return {"response": "No message provided."}
+
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=messages,
-            temperature=0.7,
+        response = client.chat.completions.create(
+            model="gpt-4",  # or "gpt-3.5-turbo"
+            messages=[
+                {"role": "system", "content": "You are a helpful AI assistant for cannabis dispensary SEO and marketing."},
+                {"role": "user", "content": user_input}
+            ],
+            temperature=0.7
         )
-        print("DEBUG: OpenAI Response:", response)  # <-- Debug line
-        return {"reply": response.choices[0].message["content"]}
-    except Exception as e:
-        print("ERROR: OpenAI API failed with:", e)  # <-- Debug line
-        return {"reply": "Sorry, I'm having trouble answering that right now."}
+        message = response.choices[0].message.content.strip()
+        return {"re
