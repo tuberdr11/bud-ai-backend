@@ -19,14 +19,15 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 async def ask_question(req: Request):
     data = await req.json()
     question = data.get("message", "")
-    context = find_relevant_chunks(question)
+    context = find_relevant_chunks(question)  # Now it uses actual question
     messages = [
         {"role": "system", "content": "You are BUD, the helpful AI from 420Optimized.com. Use only verified info from the site to answer questions clearly and helpfully."},
         {"role": "user", "content": f"{question}\n\nContext:\n{context}"}
     ]
     try:
         response = openai.ChatCompletion.create(
-model="gpt-3.5-turbo",            messages=messages,
+            model="gpt-3.5-turbo",
+            messages=messages,
             temperature=0.7,
         )
         return {"reply": response.choices[0].message["content"]}
