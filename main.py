@@ -1,15 +1,21 @@
 # main.py
-# BUD AI Backend — v1.3 Stable (GPT-4o, full logging, fallback support)
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from openai import OpenAI
+from fastapi.responses import JSONResponse
+from dotenv import load_dotenv
+import openai
 import os
 
-# Initialize FastAPI app
+# ✅ Load environment variables from .env file
+load_dotenv()
+
+# ✅ Get OpenAI API Key
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 app = FastAPI()
 
-# Allow all CORS origins (for frontend compatibility)
+# ✅ Allow frontend access from any origin (you can tighten this later)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -18,49 +24,27 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load OpenAI client (uses your env var OPENAI_API_KEY)
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
 @app.get("/")
-async def root():
-    return {"message": "BUD backend is live."}
+def read_root():
+    return {"message": "BUD is live"}
 
 @app.post("/ask")
 async def ask(request: Request):
+    data = await request.json()
+    prompt = data.get("prompt", "")
+
     try:
-        data = await request.json()
-        question = data.get("question", "").strip()
-
-        if not question:
-            return {"answer": "Please type a question for BUD to answer."}
-
-        print("🟢 New question received:", question)
-
-        response = client.chat.completions.create(
-            model="gpt-4o",
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
             messages=[
-                {
-                    "role": "system",
-                    "content": "You are BUD, a helpful, friendly assistant for dispensary owners. Your job is to explain cannabis SEO, digital marketing, and local visibility strategies in a simple, professional way."
-                },
-                {
-                    "role": "user",
-                    "content": question
-                }
-            ],
-            temperature=0.7,
-            max_tokens=300
+                {"role": "system", "content": "You are a helpful assistant named BUD who specializes in cannabis SEO and marketing."},
+                {"role": "user", "content": prompt}
+            ]
         )
+        print("🔍 OpenAI Response:", response)
 
-        reply = response.choices[0].message.content.strip() if response.choices else ""
-
-        print("🧠 GPT Reply:", reply)
-
-        if not reply:
-            return {"answer": "BUD didn’t catch that. Try asking again about SEO, visibility, or dispensary marketing."}
-
-        return {"answer": reply}
-
+        answer = response['choices'][0]['message']['content']
+        return JSONResponse(content={"answer": answer})
     except Exception as e:
-        print("❌ ERROR:", str(e))
-        return {"answer": "Oops! BUD had a problem. Try again in a moment."}
+        print("❌ OpenAI Error:", str(e))
+        return JSONResponse(content={"answer": "Sorry, I didn’t get that."})
