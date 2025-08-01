@@ -1,5 +1,5 @@
 # main.py
-# BUD AI Backend - OpenAI 1.1 (GPT-4o Compatible)
+# BUD AI Backend - OpenAI 1.2 (Stable with response fallback)
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,10 +8,10 @@ import os
 
 app = FastAPI()
 
-# Set up OpenAI client with your API key
+# Set up OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# Allow frontend access (adjust for production)
+# Allow frontend access
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -31,14 +31,14 @@ async def ask(request: Request):
         user_question = body.get("question", "").strip()
 
         if not user_question:
-            return {"answer": "Please ask a question."}
+            return {"answer": "Please ask a question about dispensary SEO or 420 marketing."}
 
         response = client.chat.completions.create(
-            model="gpt-4o",  # Make sure your OpenAI account has access to this model
+            model="gpt-4o",  # Make sure your OpenAI key has access to gpt-4o
             messages=[
                 {
                     "role": "system",
-                    "content": "You are BUD, a friendly expert in dispensary SEO and cannabis marketing. You respond clearly, even to greetings, and help users with short, useful tips."
+                    "content": "You are BUD, a friendly expert in dispensary SEO and cannabis marketing. You help users with short, smart, and clear answers about 420 marketing. Respond helpfully even to greetings."
                 },
                 {"role": "user", "content": user_question},
             ],
@@ -48,10 +48,13 @@ async def ask(request: Request):
 
         reply = response.choices[0].message.content.strip()
 
-        if not reply:
-            return {"answer": "Sorry, I didn’t get that. Can you try asking another way?"}
+        # Handle blank or confusing output
+        if not reply or reply.lower() in ["", "i don't know", "sorry", "none"]:
+            return {
+                "answer": "Sorry, I didn’t get that. Try asking about local SEO, Google Maps rankings, or cannabis marketing tips."
+            }
 
         return {"answer": reply}
 
     except Exception as e:
-        return {"answer": f"Error: {str(e)}"}
+        return {"answer": f"BUD had a hiccup: {str(e)}"}
