@@ -1,52 +1,42 @@
 # main.py
-from dotenv import load_dotenv
-load_dotenv()
-
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-from dotenv import load_dotenv
-import openai
 import os
+from openai import OpenAI
+from dotenv import load_dotenv
 
-# ✅ Load environment variables from .env file
+# Load environment variables from .env
 load_dotenv()
 
-# ✅ Get OpenAI API Key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Initialize OpenAI client
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+# Set up FastAPI app
 app = FastAPI()
 
-# ✅ Allow frontend access from any origin (you can tighten this later)
+# Allow frontend access
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.get("/")
-def read_root():
-    return {"message": "BUD is live"}
-
+# Define the /ask route
 @app.post("/ask")
 async def ask(request: Request):
-    data = await request.json()
-    prompt = data.get("prompt", "")
+    body = await request.json()
+    user_question = body.get("question", "")
 
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4",
+        response = client.chat.completions.create(
+            model="gpt-4o",  # or "gpt-3.5-turbo"
             messages=[
-                {"role": "system", "content": "You are a helpful assistant named BUD who specializes in cannabis SEO and marketing."},
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": user_question}
             ]
         )
-        print("🔍 OpenAI Response:", response)
 
-        answer = response['choices'][0]['message']['content']
-        return JSONResponse(content={"answer": answer})
+        return {"answer": response.choices[0].message.content}
+
     except Exception as e:
-        print("❌ OpenAI Error:", str(e))
-        return JSONResponse(content={"answer": "Sorry, I didn’t get that."})
+        return {"answer": f"Oops! BUD had a problem: {str(e)}"}
