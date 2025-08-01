@@ -1,17 +1,15 @@
 # main.py
-# BUD AI Backend - OpenAI 1.2 (Stable with response fallback)
+# BUD AI Backend — v1.3 Stable (GPT-4o, full logging, fallback support)
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
 import os
 
+# Initialize FastAPI app
 app = FastAPI()
 
-# Set up OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-# Allow frontend access
+# Allow all CORS origins (for frontend compatibility)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -20,41 +18,49 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Load OpenAI client (uses your env var OPENAI_API_KEY)
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 @app.get("/")
 async def root():
-    return {"message": "BUD AI backend is live."}
+    return {"message": "BUD backend is live."}
 
 @app.post("/ask")
 async def ask(request: Request):
     try:
-        body = await request.json()
-        user_question = body.get("question", "").strip()
+        data = await request.json()
+        question = data.get("question", "").strip()
 
-        if not user_question:
-            return {"answer": "Please ask a question about dispensary SEO or 420 marketing."}
+        if not question:
+            return {"answer": "Please type a question for BUD to answer."}
+
+        print("🟢 New question received:", question)
 
         response = client.chat.completions.create(
-            model="gpt-4o",  # Make sure your OpenAI key has access to gpt-4o
+            model="gpt-4o",
             messages=[
                 {
                     "role": "system",
-                    "content": "You are BUD, a friendly expert in dispensary SEO and cannabis marketing. You help users with short, smart, and clear answers about 420 marketing. Respond helpfully even to greetings."
+                    "content": "You are BUD, a helpful, friendly assistant for dispensary owners. Your job is to explain cannabis SEO, digital marketing, and local visibility strategies in a simple, professional way."
                 },
-                {"role": "user", "content": user_question},
+                {
+                    "role": "user",
+                    "content": question
+                }
             ],
             temperature=0.7,
             max_tokens=300
         )
 
-        reply = response.choices[0].message.content.strip()
+        reply = response.choices[0].message.content.strip() if response.choices else ""
 
-        # Handle blank or confusing output
-        if not reply or reply.lower() in ["", "i don't know", "sorry", "none"]:
-            return {
-                "answer": "Sorry, I didn’t get that. Try asking about local SEO, Google Maps rankings, or cannabis marketing tips."
-            }
+        print("🧠 GPT Reply:", reply)
+
+        if not reply:
+            return {"answer": "BUD didn’t catch that. Try asking again about SEO, visibility, or dispensary marketing."}
 
         return {"answer": reply}
 
     except Exception as e:
-        return {"answer": f"BUD had a hiccup: {str(e)}"}
+        print("❌ ERROR:", str(e))
+        return {"answer": "Oops! BUD had a problem. Try again in a moment."}
