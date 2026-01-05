@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
+from embedder import find_relevant_chunks
 
 # Load environment variables from .env
 load_dotenv()
@@ -29,9 +30,13 @@ async def ask(request: Request):
     user_question = body.get("question", "")
 
     try:
+        # Get relevant context from embedder
+        context = find_relevant_chunks(user_question)
+
         response = client.chat.completions.create(
             model="gpt-4o",  # or "gpt-3.5-turbo"
             messages=[
+                {"role": "system", "content": f"You are BUD, a helpful cannabis shopping assistant. Use this context to answer questions: {context}"},
                 {"role": "user", "content": user_question}
             ]
         )
