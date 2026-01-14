@@ -632,4 +632,418 @@ return array(
     ),
   ),
 
+  // ============================================================
+  // ORANGE COUNTY CITIES - ANAHEIM (4 neighborhoods)
+  // ============================================================
+  'anaheim' => array(
+    'anaheim-resort' => array(
+      'overview' => 'Disneyland area. LIMITED dispensaries nearby. Delivery essential. $30-55 eighths.',
+      'delivery_explainer' => 'DELIVERY RECOMMENDED. Limited walk-in near parks.',
+      'product_guides' => array('flower' => '$30-55 eighths via delivery.'),
+      'recommended_brands' => 'Full CA selection via delivery.',
+      'price_reality' => '$30-55 eighths. Tourist area.',
+      'trend_notes' => 'NO CANNABIS AT DISNEYLAND. Hotel delivery popular.',
+      'faq' => array(array('q' => 'Dispensaries near Disneyland?', 'a' => 'Limited. Use delivery.')),
+    ),
+    'downtown-anaheim' => array(
+      'overview' => 'Downtown revitalization area. Some dispensary options. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Packing House food hall. Craft breweries.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Growing area with dispensaries.')),
+    ),
+    'anaheim-hills' => array(
+      'overview' => 'Affluent hillside community. Limited retail. $32-58 eighths.',
+      'delivery_explainer' => 'Delivery recommended.',
+      'product_guides' => array('flower' => '$32-58 eighths.'),
+      'recommended_brands' => 'Full CA selection via delivery.',
+      'price_reality' => '$32-58 eighths.',
+      'trend_notes' => 'Affluent residential. Limited retail.',
+      'faq' => array(array('q' => 'Anaheim Hills dispensaries?', 'a' => 'Limited. Use delivery.')),
+    ),
+    'east-anaheim' => array(
+      'overview' => 'Commercial corridor with good dispensary concentration. $26-50 eighths.',
+      'delivery_explainer' => 'Delivery and walk-in available.',
+      'product_guides' => array('flower' => '$26-50 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$26-50 eighths. Good value for OC.',
+      'trend_notes' => 'Better selection than Resort area.',
+      'faq' => array(array('q' => 'Best Anaheim value?', 'a' => 'East Anaheim often has better prices.')),
+    ),
+  ),
+
+  // SANTA ANA (3 neighborhoods)
+  'santa-ana' => array(
+    'downtown-santa-ana' => array(
+      'overview' => 'Arts district with multiple dispensaries. Best OC walking experience. $26-50 eighths.',
+      'delivery_explainer' => 'Delivery and walk-in.',
+      'product_guides' => array('flower' => '$26-50 eighths.'),
+      'recommended_brands' => 'Full CA selection.',
+      'price_reality' => '$26-50 eighths. Best OC value.',
+      'trend_notes' => 'Arts district. 4th Street Market. Good nightlife.',
+      'faq' => array(array('q' => 'DTSA vibe?', 'a' => 'Artsy, diverse, walkable.')),
+    ),
+    'south-coast-metro' => array(
+      'overview' => 'Business district near South Coast Plaza. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Business area. Near South Coast Plaza.',
+      'faq' => array(array('q' => 'South Coast Plaza?', 'a' => 'Major mall. No cannabis on property.')),
+    ),
+    'north-santa-ana' => array(
+      'overview' => 'Residential and commercial. Good dispensary access. $25-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$25-48 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$25-48 eighths. Good value.',
+      'trend_notes' => 'Good value. Near Orange border.',
+      'faq' => array(array('q' => 'North SA options?', 'a' => 'Multiple dispensaries.')),
+    ),
+  ),
+
+  // IRVINE (3 neighborhoods)
+  'irvine' => array(
+    'irvine-spectrum' => array(
+      'overview' => 'Entertainment district. NO dispensaries at Spectrum. Delivery essential. $32-58 eighths.',
+      'delivery_explainer' => 'DELIVERY ONLY for Spectrum area.',
+      'product_guides' => array('flower' => '$32-58 eighths via delivery.'),
+      'recommended_brands' => 'Full CA selection via delivery.',
+      'price_reality' => '$32-58 eighths.',
+      'trend_notes' => 'Major entertainment. No dispensaries on property.',
+      'faq' => array(array('q' => 'Spectrum dispensaries?', 'a' => 'None at Spectrum. Use delivery.')),
+    ),
+    'uci-area' => array(
+      'overview' => 'UC Irvine campus area. Delivery for students 21+. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery popular with students.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Full CA selection.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'No campus consumption. Off-campus delivery.',
+      'faq' => array(array('q' => 'UCI campus?', 'a' => 'No cannabis on campus. Must be 21+.')),
+    ),
+    'woodbridge' => array(
+      'overview' => 'Classic Irvine village. Limited retail. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery recommended.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Full CA selection via delivery.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'Established Irvine village.',
+      'faq' => array(array('q' => 'Woodbridge options?', 'a' => 'Delivery from nearby cities.')),
+    ),
+  ),
+
+  // HUNTINGTON BEACH (3 neighborhoods)
+  'huntington-beach' => array(
+    'downtown-hb' => array(
+      'overview' => 'Beach-adjacent downtown. Tourist area. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery available. Some walk-in.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'Main Street. Pier. Beach culture.',
+      'faq' => array(array('q' => 'Downtown HB options?', 'a' => 'Some options. Delivery also good.')),
+    ),
+    'beach-blvd-hb' => array(
+      'overview' => 'Main commercial corridor. Best HB dispensary concentration. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery and walk-in available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths. Better than beachfront.',
+      'trend_notes' => 'Commercial corridor. Best HB selection.',
+      'faq' => array(array('q' => 'Beach Blvd options?', 'a' => 'Best dispensary concentration in HB.')),
+    ),
+    'pacific-city' => array(
+      'overview' => 'Upscale shopping near beach. Limited dispensaries. $32-58 eighths.',
+      'delivery_explainer' => 'Delivery recommended.',
+      'product_guides' => array('flower' => '$32-58 eighths.'),
+      'recommended_brands' => 'Full OC selection via delivery.',
+      'price_reality' => '$32-58 eighths.',
+      'trend_notes' => 'Upscale retail. No dispensaries at Pacific City.',
+      'faq' => array(array('q' => 'Pacific City dispensaries?', 'a' => 'None. Use delivery or Beach Blvd.')),
+    ),
+  ),
+
+  // NEWPORT BEACH (3 neighborhoods)
+  'newport-beach' => array(
+    'balboa-peninsula' => array(
+      'overview' => 'Beach peninsula with pier. NO dispensaries. Delivery only. $35-60 eighths.',
+      'delivery_explainer' => 'DELIVERY ONLY.',
+      'product_guides' => array('flower' => '$35-60 eighths via delivery.'),
+      'recommended_brands' => 'Premium via delivery.',
+      'price_reality' => '$35-60 eighths.',
+      'trend_notes' => 'Classic beach. Fun Zone. No dispensaries.',
+      'faq' => array(array('q' => 'Balboa options?', 'a' => 'Delivery only. Plan ahead.')),
+    ),
+    'corona-del-mar' => array(
+      'overview' => 'Upscale village. NO dispensaries. Delivery essential. $35-65 eighths.',
+      'delivery_explainer' => 'DELIVERY ONLY.',
+      'product_guides' => array('flower' => '$35-65 eighths via delivery.'),
+      'recommended_brands' => 'Premium via delivery.',
+      'price_reality' => '$35-65 eighths.',
+      'trend_notes' => 'CdM village. Upscale. No retail.',
+      'faq' => array(array('q' => 'CdM options?', 'a' => 'None. Delivery from Costa Mesa/HB.')),
+    ),
+    'fashion-island' => array(
+      'overview' => 'Upscale shopping center. NO dispensaries. $35-60 eighths via delivery.',
+      'delivery_explainer' => 'DELIVERY recommended.',
+      'product_guides' => array('flower' => '$35-60 eighths via delivery.'),
+      'recommended_brands' => 'Premium via delivery.',
+      'price_reality' => '$35-60 eighths.',
+      'trend_notes' => 'Luxury shopping. No dispensaries.',
+      'faq' => array(array('q' => 'Fashion Island dispensaries?', 'a' => 'None. Use delivery.')),
+    ),
+  ),
+
+  // COSTA MESA (3 neighborhoods)
+  'costa-mesa' => array(
+    'south-coast-plaza-area' => array(
+      'overview' => 'Major mall area. Dispensaries nearby. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery available. Walk-in nearby.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'Major shopping. Dispensaries nearby.',
+      'faq' => array(array('q' => 'South Coast Plaza dispensaries?', 'a' => 'Not at mall. Nearby options available.')),
+    ),
+    'eastside-costa-mesa' => array(
+      'overview' => 'Residential and commercial. Good access. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery and walk-in available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Good local options.',
+      'faq' => array(array('q' => 'Eastside options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'westside-costa-mesa' => array(
+      'overview' => 'Near Newport border. Good access. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Serves Newport Beach area too.',
+      'faq' => array(array('q' => 'Westside options?', 'a' => 'Dispensaries serve Costa Mesa and Newport.')),
+    ),
+  ),
+
+  // LAGUNA BEACH (3 neighborhoods)
+  'laguna-beach' => array(
+    'downtown-laguna' => array(
+      'overview' => 'Main Beach and downtown village. NO dispensaries. Delivery only. $35-62 eighths.',
+      'delivery_explainer' => 'DELIVERY ONLY.',
+      'product_guides' => array('flower' => '$35-62 eighths via delivery.'),
+      'recommended_brands' => 'Full CA selection via delivery.',
+      'price_reality' => '$35-62 eighths.',
+      'trend_notes' => 'Art galleries. Main Beach. No retail.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'None. Plan delivery ahead.')),
+    ),
+    'north-laguna' => array(
+      'overview' => 'Residential coves. NO dispensaries. Delivery only. $35-62 eighths.',
+      'delivery_explainer' => 'DELIVERY ONLY.',
+      'product_guides' => array('flower' => '$35-62 eighths via delivery.'),
+      'recommended_brands' => 'Via delivery.',
+      'price_reality' => '$35-62 eighths.',
+      'trend_notes' => 'Beautiful coves. No retail.',
+      'faq' => array(array('q' => 'North Laguna options?', 'a' => 'Delivery only.')),
+    ),
+    'south-laguna' => array(
+      'overview' => 'Quieter south end. NO dispensaries. Delivery only. $35-62 eighths.',
+      'delivery_explainer' => 'DELIVERY ONLY.',
+      'product_guides' => array('flower' => '$35-62 eighths via delivery.'),
+      'recommended_brands' => 'Via delivery.',
+      'price_reality' => '$35-62 eighths.',
+      'trend_notes' => '1000 Steps Beach. No retail.',
+      'faq' => array(array('q' => 'South Laguna options?', 'a' => 'Delivery from Dana Point or Costa Mesa.')),
+    ),
+  ),
+
+  // FULLERTON (3 neighborhoods)
+  'fullerton' => array(
+    'downtown-fullerton' => array(
+      'overview' => 'Historic downtown with nightlife. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Bars and restaurants. Good vibe.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Dispensaries in Fullerton area.')),
+    ),
+    'csuf-area' => array(
+      'overview' => 'Cal State Fullerton campus area. Delivery popular. $26-50 eighths.',
+      'delivery_explainer' => 'Delivery popular with students.',
+      'product_guides' => array('flower' => '$26-50 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$26-50 eighths.',
+      'trend_notes' => 'College area. Students 21+ only.',
+      'faq' => array(array('q' => 'CSUF options?', 'a' => 'No campus consumption. Off-campus delivery.')),
+    ),
+    'east-fullerton' => array(
+      'overview' => 'Commercial corridor. Good dispensary access. $26-50 eighths.',
+      'delivery_explainer' => 'Delivery and walk-in available.',
+      'product_guides' => array('flower' => '$26-50 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$26-50 eighths.',
+      'trend_notes' => 'Commercial area.',
+      'faq' => array(array('q' => 'East Fullerton?', 'a' => 'Good dispensary options.')),
+    ),
+  ),
+
+  // ORANGE (3 neighborhoods)
+  'orange' => array(
+    'old-towne-orange' => array(
+      'overview' => 'Historic downtown around the Circle. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Historic charm. Antique district.',
+      'faq' => array(array('q' => 'Old Towne options?', 'a' => 'Check nearby dispensaries.')),
+    ),
+    'north-orange' => array(
+      'overview' => 'Commercial area. Good access. $26-50 eighths.',
+      'delivery_explainer' => 'Delivery and walk-in available.',
+      'product_guides' => array('flower' => '$26-50 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$26-50 eighths.',
+      'trend_notes' => 'Near Anaheim border.',
+      'faq' => array(array('q' => 'North Orange options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'south-orange' => array(
+      'overview' => 'Near Tustin/Santa Ana borders. Good access. $26-50 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-50 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$26-50 eighths.',
+      'trend_notes' => 'Near The Outlets at Orange.',
+      'faq' => array(array('q' => 'South Orange options?', 'a' => 'Good dispensary access.')),
+    ),
+  ),
+
+  // GARDEN GROVE (3 neighborhoods)
+  'garden-grove' => array(
+    'downtown-garden-grove' => array(
+      'overview' => 'City center. Good dispensary access. $26-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-48 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$26-48 eighths.',
+      'trend_notes' => 'Central location.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'west-garden-grove' => array(
+      'overview' => 'Near Little Saigon/Westminster. $26-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-48 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$26-48 eighths.',
+      'trend_notes' => 'Near Little Saigon dining.',
+      'faq' => array(array('q' => 'West GG options?', 'a' => 'Good access. Near Westminster.')),
+    ),
+    'east-garden-grove' => array(
+      'overview' => 'Near Anaheim. Good access. $26-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-48 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$26-48 eighths.',
+      'trend_notes' => 'Near Anaheim border.',
+      'faq' => array(array('q' => 'East GG options?', 'a' => 'Dispensaries available.')),
+    ),
+  ),
+
+  // MISSION VIEJO (3 neighborhoods)
+  'mission-viejo' => array(
+    'mission-viejo-central' => array(
+      'overview' => 'City center. Limited retail. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery recommended.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Via delivery.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'Limited options.',
+      'faq' => array(array('q' => 'Central MV options?', 'a' => 'Delivery recommended.')),
+    ),
+    'north-mission-viejo' => array(
+      'overview' => 'Near Lake Forest border. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery from Lake Forest.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Via delivery.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'Near Lake Forest dispensaries.',
+      'faq' => array(array('q' => 'North MV options?', 'a' => 'Try Lake Forest for walk-in.')),
+    ),
+    'south-mission-viejo' => array(
+      'overview' => 'Residential south end. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery recommended.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Via delivery.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'Suburban residential.',
+      'faq' => array(array('q' => 'South MV options?', 'a' => 'Delivery from Laguna Niguel area.')),
+    ),
+  ),
+
+  // LAKE FOREST (3 neighborhoods)
+  'lake-forest' => array(
+    'lake-forest-central' => array(
+      'overview' => 'Main city area. Good dispensary access. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery and walk-in available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Best South County walk-in.',
+      'faq' => array(array('q' => 'Central LF options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'foothill-ranch' => array(
+      'overview' => 'Newer development. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Near Whiting Ranch wilderness.',
+      'faq' => array(array('q' => 'Foothill Ranch options?', 'a' => 'Lake Forest dispensaries nearby.')),
+    ),
+    'portola-hills' => array(
+      'overview' => 'Hillside community. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full OC selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Near hiking/nature.',
+      'faq' => array(array('q' => 'Portola Hills options?', 'a' => 'Lake Forest dispensaries serve area.')),
+    ),
+  ),
+
+  // SAN CLEMENTE (3 neighborhoods)
+  'san-clemente' => array(
+    'downtown-san-clemente' => array(
+      'overview' => 'Historic downtown. Del Mar Street. $32-55 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$32-55 eighths.'),
+      'recommended_brands' => 'Standard OC selection.',
+      'price_reality' => '$32-55 eighths.',
+      'trend_notes' => 'Spanish Village charm. Pier nearby.',
+      'faq' => array(array('q' => 'Downtown SC options?', 'a' => 'Limited but available.')),
+    ),
+    'north-beach-sc' => array(
+      'overview' => 'North beach area. $32-55 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$32-55 eighths.'),
+      'recommended_brands' => 'Standard OC selection.',
+      'price_reality' => '$32-55 eighths.',
+      'trend_notes' => 'Beach residential.',
+      'faq' => array(array('q' => 'North Beach options?', 'a' => 'Delivery or downtown.')),
+    ),
+    'talega' => array(
+      'overview' => 'Master-planned community. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Standard OC selection.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'Newer development. Family-oriented.',
+      'faq' => array(array('q' => 'Talega options?', 'a' => 'Delivery recommended.')),
+    ),
+  ),
+
 );
