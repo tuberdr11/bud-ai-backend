@@ -1,8 +1,10 @@
 <?php
 /**
  * California Neighborhoods Content
- * Separated neighborhoods for all California cities
+ * ALL neighborhoods for all California cities
  * Merge with california-state-pack.php
+ *
+ * Structure: city_slug => neighborhood_slug => neighborhood_data
  */
 return array(
 
@@ -303,7 +305,331 @@ return array(
     ),
   ),
 
-  // Continue with remaining cities...
-  // I'll create a shortened version for the remaining cities to keep file manageable
+  // ============================================================
+  // OAKLAND NEIGHBORHOODS (4)
+  // ============================================================
+  'oakland' => array(
+    'downtown-oakland' => array(
+      'overview' => 'Downtown Oakland. Good dispensary concentration. $28-50 eighths.',
+      'delivery_explainer' => 'Delivery and walk-in available.',
+      'product_guides' => array('flower' => '$28-50 eighths.'),
+      'recommended_brands' => 'Full Oakland selection.',
+      'price_reality' => '$28-50 eighths. Good value.',
+      'trend_notes' => 'Urban core. BART accessible.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Multiple dispensaries near BART.')),
+    ),
+    'temescal' => array(
+      'overview' => 'Trendy neighborhood with excellent options. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full Oakland selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Trendy. Telegraph Ave.',
+      'faq' => array(array('q' => 'Temescal options?', 'a' => 'Quality dispensaries.')),
+    ),
+    'lake-merritt' => array(
+      'overview' => 'Lake area with good options. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full Oakland selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Lake views. BART accessible.',
+      'faq' => array(array('q' => 'Lake Merritt options?', 'a' => 'Good dispensary coverage.')),
+    ),
+    'fruitvale' => array(
+      'overview' => 'Historic neighborhood. Equity dispensaries. $26-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-48 eighths.'),
+      'recommended_brands' => 'Equity brands supported.',
+      'price_reality' => '$26-48 eighths. Good value.',
+      'trend_notes' => 'Historic Latino neighborhood. Equity focus.',
+      'faq' => array(array('q' => 'Fruitvale options?', 'a' => 'Equity-owned dispensaries.')),
+    ),
+  ),
+
+  // ============================================================
+  // SAN JOSE NEIGHBORHOODS (6)
+  // ============================================================
+  'san-jose' => array(
+    'downtown-sj' => array(
+      'overview' => 'Downtown San Jose. SAP Center. $30-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-52 eighths.'),
+      'recommended_brands' => 'Full SJ selection.',
+      'price_reality' => '$30-52 eighths.',
+      'trend_notes' => 'Urban core. Sharks.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'willow-glen' => array(
+      'overview' => 'Charming neighborhood. $30-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-52 eighths.'),
+      'recommended_brands' => 'Full SJ selection.',
+      'price_reality' => '$30-52 eighths.',
+      'trend_notes' => 'Village atmosphere.',
+      'faq' => array(array('q' => 'Willow Glen options?', 'a' => 'Delivery or nearby dispensaries.')),
+    ),
+    'campbell' => array(
+      'overview' => 'Downtown Campbell area. $30-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-52 eighths.'),
+      'recommended_brands' => 'Full selection.',
+      'price_reality' => '$30-52 eighths.',
+      'trend_notes' => 'Downtown Campbell. Pruneyard.',
+      'faq' => array(array('q' => 'Campbell options?', 'a' => 'Dispensaries available.')),
+    ),
+    'palo-alto' => array(
+      'overview' => 'Stanford area. BANNED DISPENSARIES. Delivery only. $35-60 eighths.',
+      'delivery_explainer' => 'DELIVERY ONLY. No retail.',
+      'product_guides' => array('flower' => '$35-60 eighths via delivery.'),
+      'recommended_brands' => 'Premium via delivery.',
+      'price_reality' => 'Premium delivery.',
+      'trend_notes' => 'NO DISPENSARIES. Stanford.',
+      'faq' => array(array('q' => 'Palo Alto dispensaries?', 'a' => 'None. Banned. Must use delivery.')),
+    ),
+    'sunnyvale' => array(
+      'overview' => 'Tech hub. Some options. $30-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-52 eighths.'),
+      'recommended_brands' => 'Full selection.',
+      'price_reality' => '$30-52 eighths.',
+      'trend_notes' => 'Tech companies. Some retail.',
+      'faq' => array(array('q' => 'Sunnyvale options?', 'a' => 'Some dispensaries available.')),
+    ),
+    'santa-clara' => array(
+      'overview' => 'Levis Stadium city. $30-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-52 eighths.'),
+      'recommended_brands' => 'Full selection.',
+      'price_reality' => '$30-52 eighths.',
+      'trend_notes' => '49ers. Great America.',
+      'faq' => array(array('q' => 'Levis Stadium?', 'a' => 'No cannabis at stadium.')),
+    ),
+  ),
+
+  // ============================================================
+  // SACRAMENTO NEIGHBORHOODS (5)
+  // ============================================================
+  'sacramento' => array(
+    'downtown-sac' => array(
+      'overview' => 'Downtown Sacramento near Capitol. $28-50 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-50 eighths.'),
+      'recommended_brands' => 'Full Sac selection.',
+      'price_reality' => '$28-50 eighths.',
+      'trend_notes' => 'Capitol area. Golden 1 Center.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'midtown-sac' => array(
+      'overview' => 'Walkable grid with dining and nightlife. $28-50 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-50 eighths.'),
+      'recommended_brands' => 'Full Sac selection.',
+      'price_reality' => '$28-50 eighths.',
+      'trend_notes' => 'Best walkability. Farm-to-fork dining.',
+      'faq' => array(array('q' => 'Midtown options?', 'a' => 'Good dispensary coverage.')),
+    ),
+    'elk-grove' => array(
+      'overview' => 'South Sac suburb. Good options. $26-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-48 eighths.'),
+      'recommended_brands' => 'Full Sac selection.',
+      'price_reality' => '$26-48 eighths.',
+      'trend_notes' => 'Large suburb. Growing.',
+      'faq' => array(array('q' => 'Elk Grove options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'roseville' => array(
+      'overview' => 'Placer County suburb. $28-50 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-50 eighths.'),
+      'recommended_brands' => 'Full Sac selection.',
+      'price_reality' => '$28-50 eighths.',
+      'trend_notes' => 'Growing suburb. Galleria area.',
+      'faq' => array(array('q' => 'Roseville options?', 'a' => 'Dispensaries available.')),
+    ),
+    'folsom' => array(
+      'overview' => 'East suburb near Folsom Lake. $28-50 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-50 eighths.'),
+      'recommended_brands' => 'Full Sac selection.',
+      'price_reality' => '$28-50 eighths.',
+      'trend_notes' => 'Lake recreation.',
+      'faq' => array(array('q' => 'Folsom options?', 'a' => 'Check dispensaries and delivery.')),
+    ),
+  ),
+
+  // ============================================================
+  // PALM SPRINGS NEIGHBORHOODS (5)
+  // ============================================================
+  'palm-springs' => array(
+    'downtown-palm-springs' => array(
+      'overview' => 'Downtown Palm Springs resort core. LOUNGES. $32-58 eighths.',
+      'delivery_explainer' => 'Delivery, walk-in, and lounges.',
+      'product_guides' => array('flower' => '$32-58 eighths.'),
+      'recommended_brands' => 'Full CA premium selection.',
+      'price_reality' => '$32-58 eighths. Resort market.',
+      'trend_notes' => 'LOUNGES! Premium retail.',
+      'faq' => array(array('q' => 'Palm Springs lounges?', 'a' => 'Licensed consumption lounges.')),
+    ),
+    'cathedral-city' => array(
+      'overview' => 'Adjacent city with good options. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full CA selection.',
+      'price_reality' => '$28-52 eighths. Better than PS proper.',
+      'trend_notes' => 'More dispensaries, slightly lower prices.',
+      'faq' => array(array('q' => 'Cathedral City options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'desert-hot-springs' => array(
+      'overview' => 'Cannabis cultivation hub. Good selection. $26-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-48 eighths.'),
+      'recommended_brands' => 'Local cultivators + major brands.',
+      'price_reality' => '$26-48 eighths. Value options.',
+      'trend_notes' => 'Cultivation center. Good value.',
+      'faq' => array(array('q' => 'Desert Hot Springs?', 'a' => 'Cannabis cultivation hub.')),
+    ),
+    'palm-desert' => array(
+      'overview' => 'Upscale desert city. $30-55 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-55 eighths.'),
+      'recommended_brands' => 'Full CA selection.',
+      'price_reality' => '$30-55 eighths.',
+      'trend_notes' => 'El Paseo shopping. Upscale.',
+      'faq' => array(array('q' => 'Palm Desert options?', 'a' => 'Dispensaries available.')),
+    ),
+    'indio' => array(
+      'overview' => 'Coachella/Stagecoach home. $28-50 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-50 eighths.'),
+      'recommended_brands' => 'Full CA selection.',
+      'price_reality' => '$28-50 eighths. Festival season may vary.',
+      'trend_notes' => 'Festival city. Coachella. Stagecoach.',
+      'faq' => array(array('q' => 'Coachella festival?', 'a' => 'Festival has own rules. Shop in Indio before.')),
+    ),
+  ),
+
+  // ============================================================
+  // HUMBOLDT NEIGHBORHOODS (3)
+  // ============================================================
+  'humboldt' => array(
+    'eureka' => array(
+      'overview' => 'Humboldt\'s largest city. Good dispensary selection. $28-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-48 eighths. Heritage quality.'),
+      'recommended_brands' => 'Humboldt heritage farms.',
+      'price_reality' => '$28-48 eighths. Great value.',
+      'trend_notes' => 'Victorian downtown. Waterfront.',
+      'faq' => array(array('q' => 'Eureka options?', 'a' => 'Multiple dispensaries with heritage products.')),
+    ),
+    'arcata' => array(
+      'overview' => 'HSU college town. Strong cannabis culture. $26-46 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-46 eighths.'),
+      'recommended_brands' => 'Humboldt heritage farms.',
+      'price_reality' => '$26-46 eighths. College town value.',
+      'trend_notes' => 'Cal Poly Humboldt. Plaza culture.',
+      'faq' => array(array('q' => 'Arcata options?', 'a' => 'Good dispensary coverage.')),
+    ),
+    'garberville' => array(
+      'overview' => 'Southern Humboldt gateway. Heart of cultivation country. $25-45 eighths.',
+      'delivery_explainer' => 'Limited delivery. Rural.',
+      'product_guides' => array('flower' => '$25-45 eighths. Source region.'),
+      'recommended_brands' => 'Local heritage farms.',
+      'price_reality' => '$25-45 eighths. Direct from source.',
+      'trend_notes' => 'EMERALD TRIANGLE HEART. Cultivation country.',
+      'faq' => array(array('q' => 'Garberville?', 'a' => 'Small town in cultivation heartland.')),
+    ),
+  ),
+
+  // ============================================================
+  // FRESNO NEIGHBORHOODS (3)
+  // ============================================================
+  'fresno' => array(
+    'downtown-fresno' => array(
+      'overview' => 'Downtown Fresno. $26-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-48 eighths.'),
+      'recommended_brands' => 'Major CA brands.',
+      'price_reality' => '$26-48 eighths.',
+      'trend_notes' => 'City center.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Dispensaries available.')),
+    ),
+    'tower-district' => array(
+      'overview' => 'Entertainment and arts district. $26-50 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-50 eighths.'),
+      'recommended_brands' => 'Major CA brands.',
+      'price_reality' => '$26-50 eighths.',
+      'trend_notes' => 'Arts and nightlife area.',
+      'faq' => array(array('q' => 'Tower District options?', 'a' => 'Check nearby dispensaries.')),
+    ),
+    'north-fresno' => array(
+      'overview' => 'North Fresno residential. $26-48 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$26-48 eighths.'),
+      'recommended_brands' => 'Major CA brands.',
+      'price_reality' => '$26-48 eighths.',
+      'trend_notes' => 'Residential areas.',
+      'faq' => array(array('q' => 'North Fresno?', 'a' => 'Check dispensary locations.')),
+    ),
+  ),
+
+  // ============================================================
+  // SANTA BARBARA NEIGHBORHOODS (3)
+  // ============================================================
+  'santa-barbara' => array(
+    'downtown-sb' => array(
+      'overview' => 'Downtown Santa Barbara. $32-58 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$32-58 eighths.'),
+      'recommended_brands' => 'Full CA premium selection.',
+      'price_reality' => '$32-58 eighths. Upscale.',
+      'trend_notes' => 'Downtown walkable. Premium market.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Dispensaries in downtown area.')),
+    ),
+    'goleta' => array(
+      'overview' => 'Adjacent city. UCSB area. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full CA selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'UCSB adjacent. Slightly better value.',
+      'faq' => array(array('q' => 'Goleta options?', 'a' => 'Dispensaries available.')),
+    ),
+    'isla-vista' => array(
+      'overview' => 'UCSB college town. Delivery recommended. $28-52 eighths.',
+      'delivery_explainer' => 'Delivery popular with students.',
+      'product_guides' => array('flower' => '$28-52 eighths.'),
+      'recommended_brands' => 'Full CA selection.',
+      'price_reality' => '$28-52 eighths.',
+      'trend_notes' => 'Student area. No campus consumption.',
+      'faq' => array(array('q' => 'IV options?', 'a' => 'Delivery popular. Students 21+ only.')),
+    ),
+  ),
+
+  // ============================================================
+  // SANTA CRUZ NEIGHBORHOODS (2)
+  // ============================================================
+  'santa-cruz' => array(
+    'downtown-sc' => array(
+      'overview' => 'Downtown Santa Cruz. $30-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-52 eighths.'),
+      'recommended_brands' => 'Full SC selection.',
+      'price_reality' => '$30-52 eighths.',
+      'trend_notes' => 'Downtown core. Pacific Ave.',
+      'faq' => array(array('q' => 'Downtown options?', 'a' => 'Multiple dispensaries.')),
+    ),
+    'capitola' => array(
+      'overview' => 'Beach village. $30-52 eighths.',
+      'delivery_explainer' => 'Delivery available.',
+      'product_guides' => array('flower' => '$30-52 eighths.'),
+      'recommended_brands' => 'Full SC selection.',
+      'price_reality' => '$30-52 eighths.',
+      'trend_notes' => 'Charming beach village.',
+      'faq' => array(array('q' => 'Capitola options?', 'a' => 'Check dispensaries in area.')),
+    ),
+  ),
 
 );
